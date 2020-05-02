@@ -13,6 +13,7 @@ ReactDOM.render(
       <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
     </div>
   </Navbar>
+  <App />
   </div>,
   document.getElementById('root')
 );
