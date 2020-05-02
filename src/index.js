@@ -1,13 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {Navbar, NavbarBrand} from 'reactstrap';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <div className="App">
+  <Navbar dark color="primary">
+    <div className="container">
+      <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+    </div>
+  </Navbar>
+  </div>,
   document.getElementById('root')
 );
 
