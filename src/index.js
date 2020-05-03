@@ -1,19 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Navbar, NavbarBrand} from 'reactstrap';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <div className="App">
-  <Navbar dark color="primary">
-    <div className="container">
-      <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
-    </div>
-  </Navbar>
-  <App />
+    <App />
   </div>,
   document.getElementById('root')
 );
