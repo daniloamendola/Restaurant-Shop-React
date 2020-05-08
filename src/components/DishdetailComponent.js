@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom'
 
 
 function RenderComments({comments}) {
-    console.log("TEST COMMNETS" + comments)
     if(comments!=null)
         return(
             <div className="col-12 col-md-5 m-1">
@@ -43,9 +42,7 @@ function RenderDish({dish}){
 }
 
 
-
 const DishDetail = (props) => {
-    console.log("TEST" + props.dish)
     if (props.dish != null){
         return (
         <div className="container">
