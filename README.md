@@ -1,3 +1,10 @@
+This project is developed as an exercise for the course:
+Front-End Web Development with React
+by The Hong Kong University of Science and Technology
+
+During the course the project of implementing a Con Fusion Restaurant was done week by week.
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
