@@ -1,7 +1,7 @@
 import {COMMENTS} from '../shared/comments'
 
 
-export const Commnets = (state = COMMENTS, action) => {
+export const Comments = (state = COMMENTS, action) => {
 
     switch(action){
         default: 
