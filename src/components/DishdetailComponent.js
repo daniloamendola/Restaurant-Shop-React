@@ -60,6 +60,8 @@ class CommentForm extends Component {
             isSubmitCommentOpen: false
         }
         this.toggleModalSubmitComment = this.toggleModalSubmitComment.bind(this)
+        this.handleSubmit = this.handleSubmit.bind(this)
+
     }
 
     toggleModalSubmitComment(){
