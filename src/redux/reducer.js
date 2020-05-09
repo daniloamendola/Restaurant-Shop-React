@@ -12,6 +12,7 @@ export const initialState = {
     promotions: PROMOTIONS
 }
 
+
 export const Reducer = (state = initialState, action) => {
 
     switch(action){
