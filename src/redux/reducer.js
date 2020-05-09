@@ -17,7 +17,6 @@ export const Reducer = (state = initialState, action) => {
 
     switch(action){
         
-
         default: return state;
 
     }
