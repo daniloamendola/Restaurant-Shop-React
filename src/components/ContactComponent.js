@@ -14,24 +14,7 @@ const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9._%+-]+\.[A-Z]{2,4}$/i.test(
 class Contact extends Component {
     constructor (props){
         super(props)
-
-        // this.state = {
-        //     firstname: '',
-        //     lastname: '',
-        //     telnum: '',
-        //     email: '',
-        //     agree: false,
-        //     contactType: 'Tel.',
-        //     message: '',
-        //     touched: {
-        //         firstname: false,
-        //         lastname: false,
-        //         telnum: false,
-        //         email: false
-        //     }
-        // }
         this.handleSubmit = this.handleSubmit.bind(this)
-        // this.handleInputChange = this.handleInputChange.bind(this)
     }
 
     
@@ -43,8 +26,6 @@ class Contact extends Component {
 
 
     render(){
-        // const errors = this.validate(this.state.firstname, this.state.lastname, this.state.telnum, this.state.email)
-
         return(
             <div className="container">
                 <div className="row">
