@@ -12,7 +12,7 @@ const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9._%+-]+\.[A-Z]{2,4}$/i.test(val);
 
 
-function RenderComments({comments}) {
+function RenderComments({comments, addComment, dishId}) {
     if(comments!=null)
         return(
             <div className="col-12 col-md-5 m-1">
@@ -30,7 +30,7 @@ function RenderComments({comments}) {
                     </div>)
                     })}
                 </ul>
-                <CommentForm />
+                <CommentForm dishId={dishId} addComment={addComment} />
             </div>
             </div>
         )
@@ -71,8 +71,13 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values){
-        console.log("Current state is: " + JSON.stringify(values))
-        alert("Current State is: " + JSON.stringify(values))
+        //this.toggleModalSubmitComment(),
+        console.log("VALUES " + JSON.stringify(values))
+        this.props.addComment( this.props.dishId, values.rating, 
+            values.author, values.message );
+
+        // console.log("Current state is: " + JSON.stringify(values))
+        // alert("Current State is: " + JSON.stringify(values))
     }
 
     render() {
@@ -90,7 +95,7 @@ class CommentForm extends Component {
                             <Row className="form-group">
                                 <Col>
                                 <Label htmlFor="rating">Rating</Label>
-                                <Control.select model=".rating" name="rating" 
+                                <Control.select model=".rating" id="rating" name="rating" 
                                     className="form-control" >
                                         <option>1</option>
                                         <option>2</option>
@@ -102,13 +107,13 @@ class CommentForm extends Component {
                             </Row>
                             <Row className="form-group">
                             <Col>
-                                <Label htmlFor="name">Your Name</Label>
-                                <Control.text model=".name" id="name" name="name"
+                                <Label htmlFor="author">Your Name</Label>
+                                <Control.text model=".author" id="author" name="author"
                                 placeholder="Your Name" className="form-control" 
                                 validators={{required, minLength:minLength(3), maxLength:maxLength(15)}}
                                 />
                                 <Errors className="text-danger" 
-                                model=".name" show="touched"
+                                model=".author" show="touched"
                                 messages={{required: 'Required',
                                 minLength: 'Must be greater then 2 characters',
                                 maxLength: 'Must be 15 characters or less'}}/>
@@ -152,7 +157,10 @@ const DishDetail = (props) => {
             </div>
             <div className="row">
                 <RenderDish dish={props.dish} />
-                <RenderComments comments={props.comments}/>
+                <RenderComments comments={props.comments} 
+                    addComment={props.addComment}
+                    dishId={props.dish.id}
+                     />
             </div>
             
         </div>
