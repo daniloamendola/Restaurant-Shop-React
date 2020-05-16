@@ -23,8 +23,6 @@ class Contact extends Component {
         this.props.resetFeedbackForm()
     }
 
-
-
     render(){
         return(
             <div className="container">

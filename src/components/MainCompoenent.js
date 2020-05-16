@@ -54,7 +54,7 @@ class Main extends Component {
           promotion={this.props.promotions.promotions.filter((promo) => promo.featured)[0]}
           promoLoading={this.props.promotions.isLoading}
           promoErrMess={this.props.promotions.errMess}
-          leader={this.props.leaders.filter((leader) => leader.featured)[0]}
+          leader={this.props.leaders.leaders.filter((leader) => leader.featured)[0]}
        />
       );
     }
@@ -76,12 +76,10 @@ class Main extends Component {
       <div>
         <Header />
         <Switch>
-            <Route path="/home" component={Home} />
+            <Route path="/home" component={HomePage} />
             <Route exact path="/menu" component={()=><Menu dishes={this.props.dishes} />} />
             <Route path='/menu/:dishId' component={DishWithId} />
             <Route exact path="/contactus" component={() => <Contact resetFeedbackForm={ this.props.resetFeedbackForm }/> } />
-            {console.log("State Check HOME" + JSON.stringify(this.props))}
-
             <Route exact path="/aboutus" component={()=><About leaders={this.props.leaders.leaders} />} />
             <Redirect to="/home" />
         </Switch>
