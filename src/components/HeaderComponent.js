@@ -19,12 +19,14 @@ class Header extends Component {
   }
 
   toggleNav(){
+    console.log("State Check " + JSON.stringify(this.state))
     this.setState({
       isNavOpen: !this.state.isNavOpen
     })
   }
 
   toggleModal(){
+      console.log("State Check " + JSON.stringify(this.state))
     this.setState({
       isModalOpen: !this.state.isModalOpen
     })
@@ -82,6 +84,7 @@ handleLogin(event){
                </div>
            </div>
        </Jumbotron>
+       { console.log("State Check " + JSON.stringify(this.state)) }
        <Modal isOpen={this.state.isModalOpen} toggle={this.state.isModalOpen}>
         <ModalHeader toggle={this.state.isModalOpen}>Login</ModalHeader>
         <ModalBody>
