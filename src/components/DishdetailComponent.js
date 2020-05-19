@@ -15,7 +15,7 @@ const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9._%+-]+\.[A-Z]{2,4}$/i.test(val);
 
 
-function RenderComments({comments, addComment, dishId}) {
+function RenderComments({comments, postComment, dishId}) {
     if(comments!=null)
         return(
             <div className="col-12 col-md-5 m-1">
@@ -33,7 +33,7 @@ function RenderComments({comments, addComment, dishId}) {
                     </div>)
                     })}
                 </ul>
-                <CommentForm dishId={dishId} addComment={addComment} />
+                <CommentForm dishId={dishId} postComment={postComment} />
             </div>
             </div>
         )
@@ -62,39 +62,34 @@ class CommentForm extends Component {
         this.state = {
             isSubmitCommentOpen: false
         }
-        this.toggleModalSubmitComment = this.toggleModalSubmitComment.bind(this)
+        this.toggleModal = this.toggleModal.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this)
 
     }
 
-    toggleModalSubmitComment(){
+    toggleModal(){
         this.setState({
-            isSubmitCommentOpen: !this.state.isSubmitCommentOpen
+            isModalOpen: !this.state.isModalOpen
         })
     }
 
     handleSubmit(values){
-        //this.toggleModalSubmitComment(),
-        console.log("VALUES " + JSON.stringify(values))
-        this.props.addComment( this.props.dishId, values.rating, 
-            values.author, values.message );
-
-        // console.log("Current state is: " + JSON.stringify(values))
-        // alert("Current State is: " + JSON.stringify(values))
+        console.log("SUBMIT " + JSON.stringify(values))
+        this.props.postComment( this.props.dishId, values.rating===null || "1", values.author, values.message );
     }
 
     render() {
         return (
             <div>
                 <div className="row">
-                    <Button online onClick={this.toggleModalSubmitComment}>
-                    <span className="fa fa-pencil fa-lg"></span> Submit Comment
+                    <Button outline color="secondary" onClick={this.toggleModal}>
+                        <span className="fa fa-pencil fa-lg"></span> Submit Comment
                     </Button>
                 </div>
-                <Modal isOpen={this.state.isSubmitCommentOpen} toggle={this.state.isSubmitCommentOpen}>
-                    <ModalHeader toggle={this.state.isSubmitCommentOpen}>Submit Comment</ModalHeader>
+                <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+                    <ModalHeader>Submit Comment</ModalHeader>
                     <ModalBody>
-                    <LocalForm onSubmit={(values)=>this.handleSubmit(values)}>
+                    <LocalForm onSubmit={ (values)=>this.handleSubmit(values) }>
                             <Row className="form-group">
                                 <Col>
                                 <Label htmlFor="rating">Rating</Label>
@@ -179,7 +174,7 @@ const DishDetail = (props) => {
             <div className="row">
                 <RenderDish dish={props.dish} />
                 <RenderComments comments={props.comments} 
-                    addComment={props.addComment}
+                    postComment={props.postComment}
                     dishId={props.dish.id}
                      />
             </div>

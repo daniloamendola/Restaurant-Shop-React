@@ -49,7 +49,7 @@ handleLogin(event){
             <NavbarToggler onClick={ this.toggleNav } />
             <NavbarBrand className="mr-auto" href="/"><img src="assets/images/logo.png" height="30" width="41" 
             alt="Ristorante Con Fusion" /></NavbarBrand>
-            <Collapse isOpen={ this.state.isNavOpen } toggle={this.state.isNavOpen} navbar>
+            <Collapse isOpen={ this.state.isNavOpen } navbar>
             <Nav navbar>
               <NavItem>
               <NavLink className="nav-link" to="/home"><span className="fa fa-home fa-lg"></span> Home</NavLink>
@@ -66,7 +66,7 @@ handleLogin(event){
             </Nav>
             <Nav className="ml-auto">
               <NavItem>
-                <Button online onClick={this.toggleModal}>
+                <Button outline color="secondary" onClick={this.toggleModal}>
                   <span className="fa fa-sign-in fa-lg"></span> Login
                 </Button>
               </NavItem>
@@ -85,8 +85,8 @@ handleLogin(event){
            </div>
        </Jumbotron>
        { console.log("State Check " + JSON.stringify(this.state)) }
-       <Modal isOpen={this.state.isModalOpen} toggle={this.state.isModalOpen}>
-        <ModalHeader toggle={this.state.isModalOpen}>Login</ModalHeader>
+       <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
+        <ModalHeader>Login</ModalHeader>
         <ModalBody>
           <Form onSubmit={this.handleLogin}>
           <FormGroup>
