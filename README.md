@@ -5,6 +5,11 @@ by The Hong Kong University of Science and Technology
 During the course the project of implementing a Con Fusion Restaurant was done week by week.
 
 
+## Json-server
+run it with:
+ json-server --watch db.json -p 3001 -d 2000
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
