@@ -23,7 +23,7 @@ run it with:
 
 
 ## Screenshot
-<img src="https://github.com/daniloamendola/Restaurant-Shop-React/blob/master/public/assets/images/coursera-react.png?raw=true" width="820" height="420">
+<img src="https://github.com/daniloamendola/Restaurant-Shop-React/blob/master/public/assets/images/coursera-react.png?raw=true" width="820">
 
 
 ## Automatic Information from Create React App
