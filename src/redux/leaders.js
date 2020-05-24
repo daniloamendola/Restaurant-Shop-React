@@ -1,21 +1,20 @@
 import * as ActionTypes from './ActionTypes';
+import { LEADERS } from '../shared/leaders'
 
 export const Leaders = (state = { isLoading: true,
                                 errMess: null,
                                 leaders: [] }, action) => {
 
-    // case ActionTypes.ADD_COMMENTS:
-    //     return {...state, errMess: null, comments: action.payload};
     
-    // case ActionTypes.COMMENTS_FAILED:
-    // return {...state, errMess: action.payload};
+    switch(action.type){
+        case ActionTypes.ADD_LEADERS:
+            return {...state, isLoading: false, errMess: null, leaders: LEADERS};
 
-    // case ActionTypes.ADD_COMMENT:
-    //     var comment = action.payload;
-    //     comment.id = state.comments.length;
-    //     comment.date = new Date().toISOString();
-    //     return { ...state, comments: state.comments.concat(comment)};
-    switch(action){
+        case ActionTypes.LEADERS_LOADING:
+            return {...state, isLoading: true, errMess: null, leaders: []}
+
+        case ActionTypes.LEADERS_FAILED:
+            return {...state, isLoading: false, errMess: action.payload };
         default: 
             return state;
     }

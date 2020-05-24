@@ -62,8 +62,6 @@ function RenderDish({dish}){
     )
 }
 
-
-
 class CommentForm extends Component {
     constructor(props){
         super(props)
@@ -82,7 +80,6 @@ class CommentForm extends Component {
     }
 
     handleSubmit(values){
-        console.log("SUBMIT " + JSON.stringify(values))
         this.props.postComment( this.props.dishId, values.rating===null || "1", values.author, values.message );
     }
 

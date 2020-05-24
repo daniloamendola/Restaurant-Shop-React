@@ -47,8 +47,8 @@ class Home extends Component {
                 <div className="row align-item-start">
                     <div className="col-12 col-md m-1">
                         <RenderCard item={this.props.dish} 
-                            isLoading={this.props.dishesLoading} 
-                            errMess={this.props.dishesErrMess}/>
+                            isLoading={this.props.dishLoading} 
+                            errMess={this.props.dishErrMess}/>
                     </div>
                     <div className="col-12 col-md m-1">
                         <RenderCard item={this.props.promotion} 
@@ -57,7 +57,9 @@ class Home extends Component {
                             />
                     </div>
                     <div className="col-12 col-md m-1">
-                        <RenderCard item={this.props.leader} 
+                        <RenderCard item={this.props.leader}
+                            isLoading={this.props.leaderLoading} 
+                            errMess={this.props.leaderErrMess} 
                             />
                     </div>
                 </div>

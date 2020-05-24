@@ -17,8 +17,6 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) =>  {
 
      newCommnet.date = new Date().toISOString();
      
-     console.log("NEWCOMMENT " + JSON.stringify(newCommnet) )
-
      return fetch(baseUrl + 'comments', {
             method: 'POST',
             body: JSON.stringify(newCommnet), 
@@ -48,7 +46,9 @@ export const postComment = (dishId, rating, author, comment) => (dispatch) =>  {
 }
 
 export const fetchDishes = () => (dispatch) => {
+    
     dispatch(dishesLoading(true));
+
     return fetch(baseUrl + 'dishes')
         .then(response => {
             if (response.ok){
@@ -113,25 +113,26 @@ export const addComments = (comments) => ({
 
 // ##### PROMOS
 export const fetchPromos = () => (dispatch) => {
-    
-    dispatch(promosLoading());
+    //dispatch(promosLoading());
 
     return fetch(baseUrl + 'promotions')
-    .then(response => {
-        if (response.ok){
-            return response;
-        } else {
-            var error = new Error('Error ' + response.status + ': ' + response.status + ': ' + response.statusText);
-            error.response = response;
-            throw error;
-        }
-    }, error => {
+        .then(response => {
+            if(response.ok) {
+                return response;
+            } else {
+                var error = new Error('Error ' + response.status + ': ' + response.statusText);
+                error.response = response;
+                throw error;
+            }
+        }, 
+        error => {
             var errmess = new Error(error.message);
             throw errmess;
-    })
-    .then(response => response.json())
-    .then(promos => dispatch(addPromos(promos)))
-    .catch(error => dispatch(promosFailed(error.message)))
+        })
+        .then(response => response.json())
+        .then(promos => dispatch(addPromos(promos)))
+//        .then(obj => console.log("RESPONSE " + JSON.stringify(obj)))
+        .catch(error => dispatch(promosFailed(error.message)));
 
 }
 
@@ -147,4 +148,41 @@ export const promosFailed = (errmess) => ({
 export const addPromos = (promos) => ({
     type: ActionTypes.ADD_PROMOS,
     payload: promos
+});
+
+// ### Leaders
+export const fetchLeaders = () => (dispatch) => {
+    
+    //dispatch(leadersLoading());
+
+    return fetch(baseUrl + 'leaders')
+    .then(response => {
+        if (response.ok){
+            return response;
+        } else {
+            var error = new Error('Error ' + response.status + ': ' + response.status + ': ' + response.statusText);
+            error.response = response;
+            throw error;
+        }
+    }, error => {
+            var errmess = new Error(error.message);
+            throw errmess;
+    })
+    .then(response => response.json())
+    .then(leaders => dispatch(addLeaders(leaders)))
+    .catch(error => dispatch(promosFailed(error.message)))
+}
+
+export const leadersLoading = () => ({
+    type: ActionTypes.LEADERS_LOADING
+});
+
+export const leadersFailed = (errmess) => ({
+    type: ActionTypes.LEADERS_FAILED,
+    payload: errmess
+});
+
+export const addLeaders = (leaders) => ({
+    type: ActionTypes.ADD_LEADERS,
+    payload: leaders
 });
