@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import {Card, CardImg, CardBody, CardText, CardTitle, Breadcrumb, BreadcrumbItem} from 'reactstrap'
 import { Link } from 'react-router-dom'
 import { Button, Col, Row, 
-    Modal, ModalHeader, ModalBody, FormGroup, Input, Label, Form} from 'reactstrap'
+    Modal, ModalHeader, ModalBody, Label} from 'reactstrap'
 import { Control, LocalForm, Errors } from 'react-redux-form'
 import { Loading } from './LoadingComponent'
 import { baseUrl } from '../shared/baseUrl'
@@ -12,8 +12,8 @@ import { FadeTransform, Fade, Stagger } from'react-animation-components'
 const required = (val) => val && val.length;
 const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => !(val) || (val.length >= len);
-const isNumber = (val) => !isNaN(Number(val));
-const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9._%+-]+\.[A-Z]{2,4}$/i.test(val);
+//const isNumber = (val) => !isNaN(Number(val));
+//const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9._%+-]+\.[A-Z]{2,4}$/i.test(val);
 
 
 function RenderComments({comments, postComment, dishId}) {

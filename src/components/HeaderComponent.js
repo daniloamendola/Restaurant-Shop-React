@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Navbar, NavbarBrand, NavbarToggler, Collapse, Nav, NavItem, Jumbotron, 
   Button, Modal, ModalHeader, ModalBody, FormGroup, Input, Label, Form} from 'reactstrap';
 import { NavLink } from 'react-router-dom'
-import { findAllInRenderedTree } from 'react-dom/test-utils';
 
 class Header extends Component {
 

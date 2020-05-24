@@ -1,15 +1,29 @@
-This project is developed as an exercise for the course:
+This project is developed as an exercise for the course I completed:
 Front-End Web Development with React
-by The Hong Kong University of Science and Technology
+from The Hong Kong University of Science and Technology
 
 During the course the project of implementing a Con Fusion Restaurant was done week by week.
 
+## Technologies
+I completed this project as part of Front-End Web Development with React course by The Hong Kong University of Science and Technology
+
+Technologies:
+- HTML
+- CSS
+- React Bootstrap 4 components
+- React Animations
+- React
+- Redux
+- React Router
+- Cross Fetch
 
 ## Json-server
 run it with:
  json-server --watch db.json -p 3001 -d 2000
 
 
+
+## Automatic Information from Create React App
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

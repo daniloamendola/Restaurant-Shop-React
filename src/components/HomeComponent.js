@@ -37,10 +37,6 @@ function RenderCard({item, isLoading, errMess}){
 
 class Home extends Component {
 
-    constructor(props){
-        super(props)
-    }
-
     render() {
         return (
             <div className="container">
